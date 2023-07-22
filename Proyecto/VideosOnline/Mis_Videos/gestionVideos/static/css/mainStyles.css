@@ -1,0 +1,124 @@
+body {
+    background: lightgray;
+    font-family: Arial;
+    background-image: url('./../img/mainbackground640x360.jpg') ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#container {
+    width: 90%;
+    margin: 0px auto;
+}
+
+header {
+    background-color: rgba(77, 4, 88,.7) ;
+    height: 100px;
+    width: 100%;
+    margin: 0px;
+    text-align: center;
+    line-height: 100px;
+    color: white
+}
+
+nav {
+    background : lightblue;
+    height: 50px;
+    border-bottom: 1px solid black;
+    
+}
+nav ul li {
+    float: left;
+    list-style : none;
+    margin: 10px;
+    line-height: 30px;
+}
+
+nav ul li:hover {
+    font-weight: bold;
+    color: purple;
+}
+
+.clearfix {
+    clear: both;
+}
+
+#content {
+    float: left;
+    width: 100%;
+    background: rgba(1, 81, 1, 0.7);
+    min-height: 500px;
+    padding: 40px;
+    max-height: 100%;
+
+}
+
+.article {
+    color: white;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+
+}
+
+.article:first_child {
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.article h2 {
+    font-size: 25px;
+}
+
+
+footer {
+    background: black;
+    color: white;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+}
+
+.capturaUsuario {
+    color: white;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+
+}
+
+.userTable {
+    padding: 20px;
+    margin: 10px;
+}
+
+.videoTable {
+    padding: 20px;
+    margin: 10px;
+}
+
+.datosvideos label {
+    color: white;
+    font-weight: bold;
+
+}
+.datosvideos h3 {
+    color: white;
+    font-weight: bold;
+
+}
+
+.thankyoudiv {
+    color: white;
+    font-weight: bold;
+}
+
+.headerImage {
+    height:50px;
+    width: 50px;
+    align-items:center;
+}
+
+

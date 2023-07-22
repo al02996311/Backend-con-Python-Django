@@ -1,0 +1,90 @@
+{% extends 'pro_gol/maintemplate.html' %}
+
+{% block title %}Pro Gol{% endblock %}
+
+{% block pageTitle %}Pro Gol{% endblock %}
+{% block content%} 
+        <div class="capturaUsuario">
+            <form action="/validarDatosUsuario/" id="cUsuario" method="POST">
+                {% csrf_token %}
+                <table class="userTable">
+                    <tr><td><label>Id (nomina)</label></td><td><input type="text" id="u_nomina" name="u_nomina"value ="{{u_nomina}}"></td></tr>
+                    <tr><td><label>Nombre</label></td><td><input type="text" id="u_nombre" name="u_nombre"value ="{{u_nombre}}" ></td></tr>
+                    <tr><td><label>Cantidad de Videos</label></td><td><input type="text" id="u_numvideo" name="u_numvideo" value ="{{u_numvideo}}" ></td></tr>
+                    <tr><td></td><td><input type="submit" id="u_aceptar" value ="Aceptar" ></td></tr>
+                </table>
+                <input type="hidden" id="confirmation" name ="confirmation" value={{confirmation}}>
+                {% if messages %}
+                {% for message in messages%}
+                  {% if message.tags == "error" %}
+                  <div class="modal" id="msgModal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title text-danger" id="msgModalLabel">{{message.tags.upper}}</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-secondary">
+                          {{message}}
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+                  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+                  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+                  <script type="text/javascript">
+                    window.onload = function () {
+                        OpenBootstrapPopup();
+                    };
+                    function OpenBootstrapPopup() {
+                        $("#msgModal").modal('show');
+                    }
+                </script>
+                  {% endif %}
+                  {% if message.tags == "info" %}
+                  <div class="modal" id="msgModal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title text-primary" id="msgModalLabel">{{message.tags.upper}}</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-secondary">
+                          {{message}}
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-primary" id="confirmationUser" name ="confirmationUser">Si</button>
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+                  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+                  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+                  <script type="text/javascript">
+                    window.onload = function () {
+                        OpenBootstrapPopup();
+                    };
+                    function OpenBootstrapPopup() {
+                        $("#msgModal").modal('show');
+                    }
+                    $(function() {
+                      $('#confirmationUser').on('click', function(e) {
+                          $('#confirmation').value = true;
+                          document.getElementById('confirmation').value = true;
+                          $('#cUsuario').submit();
+                      });
+                  });
+                </script>
+                  {% endif %}
+                {% endfor %}
+              {% endif%}                                
+            </form>               
+        </div> 
+           
+{% endblock%}
